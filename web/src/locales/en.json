@@ -1,0 +1,44 @@
+{
+  "Error": {
+    "UnknownError": {
+      "description": "Our mistake! We're working hard to fix this. In the meantime, try refreshing the page or if that doesn't work, contact us for support. Thanks for your patience!",
+      "heading": "Something went wrong!"
+    }
+  },
+  "HomePage": {
+    "heading": "Ngon rồi, app lên rồi 🎉",
+    "learnMore": "Nhấp vào đây để xem <ShopifyTutorialLink>hướng dẫn build Shopify App</ShopifyTutorialLink> 📚",
+    "startPopulatingYourApp": "Chiến thôi!",
+    "title": "Xpify Base App - Template",
+    "trophyAltText": "Nice work on building a Shopify app",
+    "yourAppIsReadyToExplore": "App đã sẵn sàng để quẩy! Nó đã bao gồm các thư viện và component để bạn có thể nghịch ví dụ như <PolarisLink>Polaris</PolarisLink>, <AdminApiLink>Shopify Admin API</AdminApiLink>, và <AppBridgeLink>App Bridge</AppBridgeLink>."
+  },
+  "NavigationMenu": {
+    "pageName": "Page name"
+  },
+  "NotFound": {
+    "description": "Check the URL and try again, or use the search bar to find what you need.",
+    "heading": "There is no page at this address"
+  },
+  "PageName": {
+    "body": "Body",
+    "heading": "Heading",
+    "primaryAction": "Primary action",
+    "secondaryAction": "Secondary action",
+    "title": "Page name"
+  },
+  "ProductsCard": {
+    "description": "Sample products are created with a default title and price. You can remove them at any time.",
+    "errorCreatingProductsToast": "There was an error creating products",
+    "populateProductsButton": {
+      "one": "Populate {{count}} product",
+      "other": "Populate {{count}} products"
+    },
+    "productsCreatedToast": {
+      "one": "{{count}} product created!",
+      "other": "{{count}} products created!"
+    },
+    "title": "Product Counter",
+    "totalProductsHeading": "TOTAL PRODUCTS"
+  }
+}

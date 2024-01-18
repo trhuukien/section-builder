@@ -1,0 +1,15 @@
+/.idea
+
+/extensions/**/dist
+
+/node_modules
+/package-lock.json
+/web/dist
+/web/.github
+/web/node_modules
+/web/.env
+
+/.env
+/shopify.app.toml
+/shopify.app.*.toml
+/*.env*
