@@ -1,107 +1,42 @@
 import {
-  Card,
   Page,
   Layout,
-  TextContainer,
-  Image,
-  LegacyStack as Stack,
-  Link,
-  Text,
+  Text
 } from "@shopify/polaris";
-import { TitleBar } from "@shopify/app-bridge-react";
-import { useTranslation, Trans } from "react-i18next";
-import {gql, useQuery} from "@apollo/client";
+import { useCallback, useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 
-import { trophyImage } from "~/assets";
+import '~/assets/style.css';
+import MediaTutorial from '~/components/media/tutorial';
+import ProductList from '~/components/product/list';
+import ModalProduct from '~/components/modal/product';
 
-const TEstQuery = gql`
-    query TstPricingPlan($id: ID!) {
-      appPricingPlans(id: $id) {
-        id status name price
-      }
-    }
-`;
-
-export default function HomePage() {
+function HomePage() {
   const { t } = useTranslation();
-  const { data, loading, error } = useQuery(TEstQuery, {
-    fetchPolicy: 'cache-and-network',
-    variables: {
-      id: 'gid://shopify/AppPricingPlan/1',
-    },
-  });
-  console.log({ data, loading, error });
+  const list = useMemo(() => [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19], []);
+  const [isShowPopup, setIsShowPopup] = useState(false);
+  const handleShowModal = useCallback(() => {
+    setIsShowPopup(!isShowPopup);
+  }, []);
+
+  console.log('re-render-homePage');
   return (
-    <Page narrowWidth>
-      <TitleBar title={t("HomePage.title")} primaryAction={null} />
+    <Page fullWidth>
       <Layout>
         <Layout.Section>
-          <Card sectioned>
-            <Stack
-              wrap={false}
-              spacing="extraTight"
-              distribution="trailing"
-              alignment="center"
-            >
-              <Stack.Item fill>
-                <TextContainer spacing="loose">
-                  <Text as="h2" variant="headingMd">
-                    {t("HomePage.heading")}
-                  </Text>
-                  <p>
-                    <Trans
-                      i18nKey="HomePage.yourAppIsReadyToExplore"
-                      components={{
-                        PolarisLink: (
-                          <Link url="https://polaris.shopify.com/" external />
-                        ),
-                        AdminApiLink: (
-                          <Link
-                            url="https://shopify.dev/api/admin-graphql"
-                            external
-                          />
-                        ),
-                        AppBridgeLink: (
-                          <Link
-                            url="https://shopify.dev/apps/tools/app-bridge"
-                            external
-                          />
-                        ),
-                      }}
-                    />
-                  </p>
-                  <p>{t("HomePage.startPopulatingYourApp")}</p>
-                  <p>
-                    <Trans
-                      i18nKey="HomePage.learnMore"
-                      components={{
-                        ShopifyTutorialLink: (
-                          <Link
-                            url="https://shopify.dev/apps/getting-started/add-functionality"
-                            external
-                          />
-                        ),
-                      }}
-                    />
-                  </p>
-                </TextContainer>
-              </Stack.Item>
-              <Stack.Item>
-                <div style={{ padding: "0 20px" }}>
-                  <Image
-                    source={trophyImage}
-                    alt={t("HomePage.trophyAltText")}
-                    width={120}
-                  />
-                </div>
-              </Stack.Item>
-            </Stack>
-          </Card>
+          <Text variant="headingLg" as="h2">{t("HomePage.tutorialTitle")}</Text>
+          <MediaTutorial />
         </Layout.Section>
-        <Layout.Section>
 
+        <Layout.Section>
+          <Text variant="headingLg" as="h2">{t("HomePage.sectionTitle")}</Text>
+          <ProductList list={list} handleShowModal={handleShowModal} />
         </Layout.Section>
+
+        <ModalProduct isShowPopup={isShowPopup} setIsShowPopup={setIsShowPopup} />
       </Layout>
     </Page>
   );
 }
+
+export default HomePage;

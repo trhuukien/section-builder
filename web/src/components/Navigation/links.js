@@ -4,8 +4,8 @@ export const useNavigationLinks = () => {
   const { t } = useTranslation();
   return [
     {
-      label: t('NavigationMenu.pageName'),
-      destination: '/pagename',
+      label: t('NavigationMenu.section'),
+      destination: '/section',
     }
   ];
 };
