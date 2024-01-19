@@ -6,6 +6,7 @@ import {
     BlockStack,
     InlineStack,
     Icon,
+    Box,
 } from '@shopify/polaris';
 import {
     CircleChevronDownMinor,
@@ -19,10 +20,10 @@ function CollapsibleDefault() {
     const handleToggle = useCallback(() => setOpen((open) => !open), []);
 
     return (
-        <Card sectioned>
-            <InlineStack vertical>
-                <div className='title-collapsible pointer' onClick={handleToggle} ariaExpanded={open}>
-                    <Text as="p" variant="bodyLg" tone='magic' ariaControls="basic-collapsible">
+        <Card>
+            <InlineStack>
+                <div className='title-collapsible pointer' onClick={handleToggle}>
+                    <Text as="p" variant="bodyLg">
                         Can I use Section Store with any Shopify theme?
                     </Text>
                     
@@ -35,7 +36,7 @@ function CollapsibleDefault() {
                     </BlockStack>
                 </div>
 
-                <div className='content-collapsible'>
+                <Box paddingBlockStart={200}>
                     <Collapsible
                         open={open}
                         id="basic-collapsible"
@@ -47,11 +48,15 @@ function CollapsibleDefault() {
                                 Your mailing list lets you contact customers or visitors who
                                 have shown an interest in your store. Reach out to them with
                                 exclusive offers or updates about your products.
+
+                                Your mailing list lets you contact customers or visitors who
+                                have shown an interest in your store. Reach out to them with
+                                exclusive offers or updates about your products.
                             </Text>
                             <Link url="#">Test link</Link>
                         </BlockStack>
                     </Collapsible>
-                </div>
+                </Box>
             </InlineStack>
         </Card>
     );

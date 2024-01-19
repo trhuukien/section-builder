@@ -6,6 +6,10 @@ export const useNavigationLinks = () => {
     {
       label: t('NavigationMenu.section'),
       destination: '/section',
+    },
+    {
+      label: t('NavigationMenu.faq'),
+      destination: '/faq',
     }
   ];
 };
